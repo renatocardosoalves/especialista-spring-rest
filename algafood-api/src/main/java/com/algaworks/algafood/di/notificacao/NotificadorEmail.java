@@ -1,19 +1,33 @@
 package com.algaworks.algafood.di.notificacao;
 
 import com.algaworks.algafood.di.modelo.Cliente;
-import org.springframework.stereotype.Component;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-@Component
 public class NotificadorEmail implements Notificador {
 
-    public NotificadorEmail() {
-        System.out.println("NotificadorEmail");
+    private static final Logger LOGGER = LoggerFactory.getLogger(NotificadorEmail.class);
+
+    private boolean caixaAlta;
+    private final String hostServidorSmtp;
+
+    public NotificadorEmail(String hostServidorSmtp) {
+        this.hostServidorSmtp = hostServidorSmtp;
+        LOGGER.info(">>> NotificadorEmail");
     }
 
     @Override
     public void notificar(Cliente cliente, String mensagem) {
-        System.out.printf("Notificando %s através do e-mail %s: %s\n",
-                cliente.getNome(), cliente.getEmail(), mensagem);
+        if (caixaAlta) {
+            mensagem = mensagem.toUpperCase();
+        }
+
+        LOGGER.info(">>> Notificando {} através do e-mail {} usando SMTP {}: {}",
+                cliente.getNome(), cliente.getEmail(), hostServidorSmtp, mensagem);
+    }
+
+    public void setCaixaAlta(boolean caixaAlta) {
+        this.caixaAlta = caixaAlta;
     }
 
 }

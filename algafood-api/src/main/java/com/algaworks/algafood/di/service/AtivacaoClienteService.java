@@ -2,15 +2,17 @@ package com.algaworks.algafood.di.service;
 
 import com.algaworks.algafood.di.modelo.Cliente;
 import com.algaworks.algafood.di.notificacao.Notificador;
-import org.springframework.stereotype.Component;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-@Component
 public class AtivacaoClienteService {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(AtivacaoClienteService.class);
 
     private final Notificador notificador;
 
     public AtivacaoClienteService(Notificador notificador) {
-        System.out.println("AtivaçãoClienteService: " + notificador);
+        LOGGER.info(">>> AtivaçãoClienteService: {}", notificador);
         this.notificador = notificador;
     }
 
