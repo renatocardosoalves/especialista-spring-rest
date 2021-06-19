@@ -3,8 +3,10 @@ package com.algaworks.algafood.di.notificacao;
 import com.algaworks.algafood.di.modelo.Cliente;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
+@Primary
 @Component
 public class NotificadorEmail implements Notificador {
 
