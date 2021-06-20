@@ -3,8 +3,10 @@ package com.algaworks.algafood.di.notificacao;
 import com.algaworks.algafood.di.modelo.Cliente;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
+@Qualifier("normal")
 @Component
 public class NotificadorSMS implements Notificador {
 
