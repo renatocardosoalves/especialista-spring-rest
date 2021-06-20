@@ -11,7 +11,7 @@ public class AtivacaoClienteService {
 
     private final Notificador notificador;
 
-    public AtivacaoClienteService(@TipoDoNotificador(NivelUrgencia.SEM_URGENCIA) Notificador notificador) {
+    public AtivacaoClienteService(@TipoDoNotificador(NivelUrgencia.URGENTE) Notificador notificador) {
         this.notificador = notificador;
     }
 
