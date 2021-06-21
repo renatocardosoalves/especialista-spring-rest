@@ -18,7 +18,7 @@ public class BuscaCozinhaMain {
 
         var cozinhas = applicationContext.getBean(CozinhaRepository.class);
 
-        var cozinha = cozinhas.porId(1L);
+        var cozinha = cozinhas.buscar(1L);
 
         LOGGER.info("id: {}, nome: {}", cozinha.getId(), cozinha.getNome());
     }

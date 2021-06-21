@@ -25,10 +25,10 @@ public class InclusaoCozinhaMain {
         var cozinha2 = new Cozinha();
         cozinha2.setNome("Japonesa");
 
-        cozinha1 = cozinhas.adicionar(cozinha1);
+        cozinha1 = cozinhas.salvar(cozinha1);
         LOGGER.info(">>> id: {}, nome: {}", cozinha1.getId(), cozinha1.getNome());
 
-        cozinha2 = cozinhas.adicionar(cozinha2);
+        cozinha2 = cozinhas.salvar(cozinha2);
         LOGGER.info(">>> id: {}, nome: {}", cozinha2.getId(), cozinha2.getNome());
     }
 

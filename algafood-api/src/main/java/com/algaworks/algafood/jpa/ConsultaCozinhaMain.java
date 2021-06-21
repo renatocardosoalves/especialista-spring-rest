@@ -18,7 +18,7 @@ public class ConsultaCozinhaMain {
 
         var cozinhas = applicationContext.getBean(CozinhaRepository.class);
 
-        cozinhas.todas()
+        cozinhas.listar()
                 .forEach(cozinha -> LOGGER.info(">>> {}", cozinha.getNome()));
     }
 
