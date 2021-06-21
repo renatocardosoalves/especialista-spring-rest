@@ -1,6 +1,7 @@
 package com.algaworks.algafood.jpa;
 
 import com.algaworks.algafood.AlgafoodApiApplication;
+import com.algaworks.algafood.domain.repository.CozinhaRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.WebApplicationType;
@@ -15,9 +16,9 @@ public class BuscaCozinhaMain {
                 .web(WebApplicationType.NONE)
                 .run(args);
 
-        var cadastroCozinha = applicationContext.getBean(CadastroCozinha.class);
+        var cozinhas = applicationContext.getBean(CozinhaRepository.class);
 
-        var cozinha = cadastroCozinha.buscar(1L);
+        var cozinha = cozinhas.porId(1L);
 
         LOGGER.info("id: {}, nome: {}", cozinha.getId(), cozinha.getNome());
     }

@@ -2,6 +2,7 @@ package com.algaworks.algafood.jpa;
 
 import com.algaworks.algafood.AlgafoodApiApplication;
 import com.algaworks.algafood.domain.model.Cozinha;
+import com.algaworks.algafood.domain.repository.CozinhaRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.WebApplicationType;
@@ -16,7 +17,7 @@ public class InclusaoCozinhaMain {
                 .web(WebApplicationType.NONE)
                 .run(args);
 
-        var cadastroCozinha = applicationContext.getBean(CadastroCozinha.class);
+        var cozinhas = applicationContext.getBean(CozinhaRepository.class);
 
         var cozinha1 = new Cozinha();
         cozinha1.setNome("Brasileira");
@@ -24,10 +25,10 @@ public class InclusaoCozinhaMain {
         var cozinha2 = new Cozinha();
         cozinha2.setNome("Japonesa");
 
-        cozinha1 = cadastroCozinha.salvar(cozinha1);
+        cozinha1 = cozinhas.adicionar(cozinha1);
         LOGGER.info(">>> id: {}, nome: {}", cozinha1.getId(), cozinha1.getNome());
 
-        cozinha2 = cadastroCozinha.salvar(cozinha2);
+        cozinha2 = cozinhas.adicionar(cozinha2);
         LOGGER.info(">>> id: {}, nome: {}", cozinha2.getId(), cozinha2.getNome());
     }
 
