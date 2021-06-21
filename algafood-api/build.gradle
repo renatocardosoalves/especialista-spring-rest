@@ -20,6 +20,10 @@ dependencies {
 	// Test
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
+	// Utils
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+
 	// Web
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 }
