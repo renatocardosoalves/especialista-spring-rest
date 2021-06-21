@@ -7,8 +7,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 
-import java.util.List;
-
 public class InclusaoCozinhaMain {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(InclusaoCozinhaMain.class);
