@@ -1,19 +1,21 @@
 package br.com.alura.algafoodapi.service;
 
 import br.com.alura.algafoodapi.model.Cliente;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class AtivacaoClienteService {
 
-    private final Notificador notificador;
-
-    public AtivacaoClienteService(Notificador notificador) {
-        this.notificador = notificador;
-    }
+    @Autowired(required = false)
+    private Notificador notificador;
 
     public void ativar(Cliente cliente) {
         cliente.ativar();
-        notificador.notificar(cliente, "Seu cadastro no sistema está ativo!");
+        if (notificador != null) {
+            notificador.notificar(cliente, "Seu cadastro no sistema está ativo!");
+            return;
+        }
+        System.out.println("Não existe um notificador configurado, mas o cliente foi ativado.");
     }
 }
