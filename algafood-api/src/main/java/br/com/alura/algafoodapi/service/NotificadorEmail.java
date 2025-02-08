@@ -1,11 +1,17 @@
 package br.com.alura.algafoodapi.service;
 
 import br.com.alura.algafoodapi.model.Cliente;
-import org.springframework.stereotype.Component;
 
 @TipoDoNotificador(NivelUrgencia.NORMAL)
-@Component
 public class NotificadorEmail implements Notificador {
+
+    public void init() {
+        System.out.println("Inicializando NotificadorEmail...");
+    }
+
+    public void destroy() {
+        System.out.println("Destruindo NotificadorEmail...");
+    }
 
     @Override
     public void notificar(Cliente cliente, String mensagem) {
