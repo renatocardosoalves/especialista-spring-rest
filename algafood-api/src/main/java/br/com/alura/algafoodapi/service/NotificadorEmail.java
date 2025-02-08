@@ -1,8 +1,10 @@
 package br.com.alura.algafoodapi.service;
 
 import br.com.alura.algafoodapi.model.Cliente;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
+@Primary
 @Component
 public class NotificadorEmail implements Notificador {
 
