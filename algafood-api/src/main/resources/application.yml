@@ -1,3 +1,8 @@
 spring:
   application:
     name: algafood-api
+
+notificador:
+  email:
+    host-servidor: smtp.algafood.com.br
+    porta-servidor: 25
