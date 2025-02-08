@@ -1,19 +1,20 @@
 package br.com.alura.algafoodapi.service;
 
 import br.com.alura.algafoodapi.model.Cliente;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Component;
 
 @Component
 public class AtivacaoClienteService {
 
-    private final Notificador notificador;
+    private final ApplicationEventPublisher eventPublisher;
 
-    public AtivacaoClienteService(@TipoDoNotificador(NivelUrgencia.URGENTE) Notificador notificador) {
-        this.notificador = notificador;
+    public AtivacaoClienteService(ApplicationEventPublisher eventPublisher) {
+        this.eventPublisher = eventPublisher;
     }
 
     public void ativar(Cliente cliente) {
         cliente.ativar();
-        notificador.notificar(cliente, "Seu cadastro no sistema está ativo!");
+        eventPublisher.publishEvent(new ClienteAtivadoEvent(cliente));
     }
 }
