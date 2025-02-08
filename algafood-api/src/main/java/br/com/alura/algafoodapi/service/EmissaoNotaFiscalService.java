@@ -8,7 +8,7 @@ public class EmissaoNotaFiscalService {
 
     private final Notificador notificador;
 
-    public EmissaoNotaFiscalService(Notificador notificador) {
+    public EmissaoNotaFiscalService(@TipoDoNotificador(NivelUrgencia.NORMAL) Notificador notificador) {
         this.notificador = notificador;
     }
 

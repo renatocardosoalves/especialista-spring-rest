@@ -3,6 +3,7 @@ package br.com.alura.algafoodapi.service;
 import br.com.alura.algafoodapi.model.Cliente;
 import org.springframework.stereotype.Component;
 
+@TipoDoNotificador(NivelUrgencia.NORMAL)
 @Component
 public class NotificadorEmail implements Notificador {
 

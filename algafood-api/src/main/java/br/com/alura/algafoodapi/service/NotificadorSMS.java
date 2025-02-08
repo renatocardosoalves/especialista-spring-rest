@@ -1,7 +1,10 @@
 package br.com.alura.algafoodapi.service;
 
 import br.com.alura.algafoodapi.model.Cliente;
+import org.springframework.stereotype.Component;
 
+@TipoDoNotificador(NivelUrgencia.URGENTE)
+@Component
 public class NotificadorSMS implements Notificador {
 
     @Override
