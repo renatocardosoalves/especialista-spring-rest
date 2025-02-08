@@ -1,6 +1,7 @@
 package br.com.alura.algafoodapi.service;
 
 import br.com.alura.algafoodapi.model.Cliente;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -8,7 +9,7 @@ public class EmissaoNotaFiscalService {
 
     private final Notificador notificador;
 
-    public EmissaoNotaFiscalService(Notificador notificador) {
+    public EmissaoNotaFiscalService(@Qualifier("urgente") Notificador notificador) {
         this.notificador = notificador;
     }
 
